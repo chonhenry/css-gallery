@@ -9,11 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "codemirror": "^5.62.0",
     "next": "11.0.1",
     "react": "17.0.2",
+    "react-codemirror2": "^7.2.1",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@types/codemirror": "^5.60.1",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1"
   }
