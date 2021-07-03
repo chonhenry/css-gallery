@@ -21,12 +21,12 @@ export default function Design() {
     <div>
       <Code displayName="HTML" language="xml" value={html} onChange={setHtml} />
       <Code displayName="CSS" language="css" value={css} onChange={setCss} />
-      <Code
+      {/* <Code
         displayName="JavaScript"
         language="javascript"
         value={javascript}
         onChange={setJavascript}
-      />
+      /> */}
       <Display html={html} css={css} javascript={javascript} />
     </div>
   );
