@@ -1,4 +1,5 @@
 import Code from "../../components/Code";
+import Display from "../../components/Display";
 import { useState } from "react";
 
 export default function Design() {
@@ -7,6 +8,14 @@ export default function Design() {
   );
   const [css, setCss] = useState("");
   const [javascript, setJavascript] = useState("let a = 1");
+
+  const srcDoc = `
+    <html>
+      <body>${html}</body>
+      <style>${css}</style>
+      <script>${javascript}</script>
+    </html>
+  `;
 
   return (
     <div>
@@ -18,6 +27,7 @@ export default function Design() {
         value={javascript}
         onChange={setJavascript}
       />
+      <Display html={html} css={css} javascript={javascript} />
     </div>
   );
 }

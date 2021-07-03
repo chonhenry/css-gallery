@@ -12,6 +12,7 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "codemirror": "^5.62.0",
+    "contentful": "^8.4.2",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-codemirror2": "^7.2.1",

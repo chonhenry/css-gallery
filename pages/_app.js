@@ -1,8 +1,12 @@
+import Layout from "../components/Layout";
 import "../styles/globals.css";
-import "codemirror/lib/codemirror.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
 export default MyApp;
