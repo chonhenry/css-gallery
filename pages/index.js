@@ -33,10 +33,10 @@ export default function Home({ css_design }) {
           // console.log(design.fields.javascript.content);
           const html = design.fields.html.content[0].content[0].value;
           const css = design.fields.css.content[0].content[0].value;
-          const javascript = "let i = 0";
-          // const javascript =
-          //   design.fields.javascript &&
-          //   design.fields.javascript.content[0].content[0].value;
+          // const javascript = "let i = 0";
+          const javascript =
+            design.fields.javascript &&
+            design.fields.javascript.content[0].content[0].value;
 
           return (
             <Grid item md={4} key={design.fields.slug}>
