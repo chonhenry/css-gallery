@@ -14,7 +14,6 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "cssDesign" });
-  console.log(res);
   return {
     props: {
       css_design: res.items,
@@ -23,27 +22,24 @@ export async function getStaticProps() {
 }
 
 export default function Home({ css_design }) {
-  // console.log(css_design);
   const router = useRouter();
 
   return (
     <Container>
       <Grid container spacing={3}>
         {css_design.map((design) => {
+          // console.log(design.fields.html.content);
+          // console.log(design.fields.css.content);
+          // console.log(design.fields.javascript.content);
           const html = design.fields.html.content[0].content[0].value;
           const css = design.fields.css.content[0].content[0].value;
-          const javascript =
-            design.fields.javascript.content[0].content[0].value;
+          const javascript = "let i = 0";
+          // const javascript =
+          //   design.fields.javascript &&
+          //   design.fields.javascript.content[0].content[0].value;
 
           return (
-            <Grid
-              item
-              md={4}
-              key={design.fields.slug}
-              // onClick={() =>
-              //   console.log("router.push(`/design/${design.fields.slug}`)")
-              // }
-            >
+            <Grid item md={4} key={design.fields.slug}>
               <Link href={`/design/${design.fields.slug}`}>
                 <a>{design.fields.title}</a>
               </Link>
@@ -51,17 +47,6 @@ export default function Home({ css_design }) {
             </Grid>
           );
         })}
-        {/* <Grid item md={4}>
-          <Display srcDoc={srcDoc} />
-        </Grid>
-
-        <Grid item md={4}>
-          <Display srcDoc={srcDoc} />
-        </Grid>
-
-        <Grid item md={4}>
-          <Display srcDoc={srcDoc} />
-        </Grid> */}
       </Grid>
     </Container>
   );

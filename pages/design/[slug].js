@@ -38,7 +38,12 @@ export async function getStaticProps({ params }) {
 export default function Design({ css_design }) {
   const html = css_design.fields.html.content[0].content[0].value;
   const css = css_design.fields.css.content[0].content[0].value;
-  const javascript = css_design.fields.javascript.content[0].content[0].value;
+  const javascript = "let i = 0";
+  // const javascript = css_design.fields.javascript
+  //   ? css_design.fields.javascript.content[0].content[0].value
+  //   : "";
+
+  console.log(html);
 
   const srcDoc = `
     <html>
@@ -52,7 +57,13 @@ export default function Design({ css_design }) {
     <div>
       <Code displayName="HTML" language="xml" value={html} />
       <Code displayName="CSS" language="css" value={css} />
-      <Code displayName="JavaScript" language="javascript" value={javascript} />
+      {javascript.length > 0 && (
+        <Code
+          displayName="JavaScript"
+          language="javascript"
+          value={javascript}
+        />
+      )}
       <Display html={html} css={css} javascript={javascript} />
     </div>
   );

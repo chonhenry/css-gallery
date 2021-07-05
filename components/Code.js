@@ -18,9 +18,14 @@ export default function Code({ displayName, language, value, onChange }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.topPane}>{displayName}</div>
+      <div
+        className={styles.topPane}
+        onClick={() => navigator.clipboard.writeText(value)}
+      >
+        {displayName}
+      </div>
       <ControlledEditor
-        className="editor"
+        className={styles.editor}
         onBeforeChange={handleChange}
         value={value}
         options={{
