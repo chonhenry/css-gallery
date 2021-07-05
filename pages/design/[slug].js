@@ -1,13 +1,44 @@
 import Code from "../../components/Code";
 import Display from "../../components/Display";
 import { useState } from "react";
+import { createClient } from "contentful";
 
-export default function Design() {
-  const [html, setHtml] = useState(
-    "<h1>vsdvkjndv</h1>\n<h1><p>advsdvvsdvsd</p></h1>"
-  );
-  const [css, setCss] = useState("");
-  const [javascript, setJavascript] = useState("let a = 1");
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+});
+
+export const getStaticPaths = async () => {
+  const res = await client.getEntries({
+    content_type: "cssDesign",
+  });
+
+  const paths = res.items.map((item) => {
+    return {
+      params: { slug: item.fields.slug },
+    };
+  });
+
+  return { paths, fallback: false };
+};
+
+export async function getStaticProps({ params }) {
+  const { items } = await client.getEntries({
+    content_type: "cssDesign",
+    "fields.slug": params.slug,
+  });
+
+  return {
+    props: {
+      css_design: items[0],
+    },
+  };
+}
+
+export default function Design({ css_design }) {
+  const html = css_design.fields.html.content[0].content[0].value;
+  const css = css_design.fields.css.content[0].content[0].value;
+  const javascript = css_design.fields.javascript.content[0].content[0].value;
 
   const srcDoc = `
     <html>
@@ -19,14 +50,9 @@ export default function Design() {
 
   return (
     <div>
-      <Code displayName="HTML" language="xml" value={html} onChange={setHtml} />
-      <Code displayName="CSS" language="css" value={css} onChange={setCss} />
-      {/* <Code
-        displayName="JavaScript"
-        language="javascript"
-        value={javascript}
-        onChange={setJavascript}
-      /> */}
+      <Code displayName="HTML" language="xml" value={html} />
+      <Code displayName="CSS" language="css" value={css} />
+      <Code displayName="JavaScript" language="javascript" value={javascript} />
       <Display html={html} css={css} javascript={javascript} />
     </div>
   );

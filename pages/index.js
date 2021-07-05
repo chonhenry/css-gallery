@@ -26,20 +26,6 @@ export default function Home({ css_design }) {
   // console.log(css_design);
   const router = useRouter();
 
-  // const [html, setHtml] = useState(
-  //   "<h1>vsdvkjndv</h1>\n<h1><p>advsdvvsdvsd</p></h1>"
-  // );
-  // const [css, setCss] = useState("");
-  // const [javascript, setJavascript] = useState("let a = 1");
-
-  // const srcDoc = `
-  //   <html>
-  //     <body>${html}</body>
-  //     <style>${css}</style>
-  //     <script>${javascript}</script>
-  //   </html>
-  // `;
-
   return (
     <Container>
       <Grid container spacing={3}>

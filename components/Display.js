@@ -2,19 +2,11 @@ import { useState } from "react";
 import styles from "../styles/Display.module.css";
 
 export default function Display({ html, css, javascript }) {
-  //   const srcDoc = `
-  //   <html>
-  //     <body>${html}</body>
-  //     <style>${css}</style>
-  //     <script>${javascript}</script>
-  //   </html>
-  // `;
-
   const displayHeight = 300;
   const displayWidth = 300;
 
   const srcDoc = `
-  <body style="height:${displayHeight}px;margin:0">${html}</body>
+  <body style="height:${300}px;margin:0">${html}</body>
   <style>${css}</style>
   <script>${javascript}</script>
 `;
@@ -22,7 +14,7 @@ export default function Display({ html, css, javascript }) {
   return (
     <>
       <iframe
-        style={{ background: "red" }}
+        style={{ background: "red", marginLeft: "60px" }}
         srcDoc={srcDoc}
         title="output"
         sandbox="allow-scripts"
