@@ -38,10 +38,10 @@ export async function getStaticProps({ params }) {
 export default function Design({ css_design }) {
   const html = css_design.fields.html.content[0].content[0].value;
   const css = css_design.fields.css.content[0].content[0].value;
-  const javascript = "let i = 0";
-  // const javascript = css_design.fields.javascript
-  //   ? css_design.fields.javascript.content[0].content[0].value
-  //   : "";
+  // const javascript = "let i = 0";
+  const javascript = css_design.fields.javascript
+    ? css_design.fields.javascript.content[0].content[0].value
+    : "";
 
   console.log(html);
 

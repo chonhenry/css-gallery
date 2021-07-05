@@ -28,12 +28,8 @@ export default function Home({ css_design }) {
     <Container>
       <Grid container spacing={3}>
         {css_design.map((design) => {
-          // console.log(design.fields.html.content);
-          // console.log(design.fields.css.content);
-          // console.log(design.fields.javascript.content);
           const html = design.fields.html.content[0].content[0].value;
           const css = design.fields.css.content[0].content[0].value;
-          // const javascript = "let i = 0";
           const javascript =
             design.fields.javascript &&
             design.fields.javascript.content[0].content[0].value;
