@@ -1,14 +1,20 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function NotFound() {
   const router = useRouter();
+  const countDown = 5;
+  const [second, setSecond] = useState(countDown);
 
   useEffect(() => {
     setTimeout(() => {
       router.push("/");
-    }, 4000);
+    }, countDown * 1000);
+
+    setInterval(() => {
+      setSecond((prev) => prev - 1);
+    }, 1000);
   }, []);
 
   return (
@@ -19,7 +25,8 @@ export default function NotFound() {
         Redirecting to{" "}
         <Link href="/">
           <a>Homepage</a>
-        </Link>
+        </Link>{" "}
+        in {second}.
       </p>
     </div>
   );
