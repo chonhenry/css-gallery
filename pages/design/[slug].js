@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       css_design: items[0],
-      revalidate: 3,
+      revalidate: 1,
     },
   };
 }
