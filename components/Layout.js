@@ -14,10 +14,19 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
+  appbar: {
+    background: "#fefefe",
+    borderBottom: "1px solid lightgray",
   },
-  toolbar: theme.mixins.toolbar,
+  space: theme.mixins.toolbar,
+  toolbar: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  page: {
+    paddingTop: 30,
+    // background: "red",
+  },
 }));
 
 export default function Layout({ children }) {
@@ -25,8 +34,8 @@ export default function Layout({ children }) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="secondary">
-        <Toolbar>
+      <AppBar position="fixed" className={classes.appbar} elevation={0}>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -35,14 +44,10 @@ export default function Layout({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <div className={classes.toolbar}></div>
-      {children}
+      <div className={classes.space}></div>
+      <div className={classes.page}>{children}</div>
     </div>
   );
 }
