@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
     };
   });
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 export async function getStaticProps({ params }) {
@@ -38,6 +38,8 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Design({ css_design }) {
+  if (!css_design) return <div>Loading...</div>;
+
   const html = css_design.fields.html.content[0].content[0].value;
   const css = css_design.fields.css.content[0].content[0].value;
   const javascript = css_design.fields.javascript
