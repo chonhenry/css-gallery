@@ -14,7 +14,7 @@ export default function NotFound() {
   return (
     <div>
       <h1>404</h1>
-      <h2>This page can't be found.</h2>
+      <h2>This page cannot be found.</h2>
       <p>
         Redirecting to{" "}
         <Link href="/">
