@@ -13,7 +13,10 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
-  const res = await client.getEntries({ content_type: "cssDesign" });
+  const res = await client.getEntries({
+    content_type: "cssDesign",
+    order: "-sys.createdAt",
+  });
   return {
     props: {
       css_design: res.items,
