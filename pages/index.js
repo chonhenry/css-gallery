@@ -17,8 +17,8 @@ export async function getStaticProps() {
   return {
     props: {
       css_design: res.items,
-      revalidate: 1,
     },
+    revalidate: 1,
   };
 }
 
