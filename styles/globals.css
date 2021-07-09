@@ -11,10 +11,10 @@ body {
   font-family: "Share Tech Mono", monospace;
 }
 
-/* a {
+a {
   color: inherit;
   text-decoration: none;
-} */
+}
 
 * {
   box-sizing: border-box;
