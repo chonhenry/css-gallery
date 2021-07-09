@@ -8,3 +8,10 @@
 .code_icon {
   cursor: pointer;
 }
+
+.btn_container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
