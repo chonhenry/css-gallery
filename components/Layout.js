@@ -79,7 +79,11 @@ export default function Layout({ children }) {
       {/* <div className={classes.space}></div> */}
       <div className={classes.page}>{children}</div>
       <div className={classes.footer}>
-        <a href="https://github.com/chonhenry/css-gallery" target="_blank">
+        <a
+          href="https://github.com/chonhenry/css-gallery"
+          target="_blank"
+          rel="noreferrer"
+        >
           <GitHubIcon className={classes.icon} />
         </a>
       </div>
