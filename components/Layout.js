@@ -55,6 +55,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Layout({ children }) {
   const classes = useStyles();
   const router = useRouter();
+  const [search, setSearch] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(search);
+    router.push(`?search=${search}`);
+    setSearch("");
+  };
 
   return (
     <div className={classes.root}>
@@ -65,12 +73,17 @@ export default function Layout({ children }) {
         color="default"
       >
         <Toolbar className={classes.toolbar}>
-          <form className={classes.form} noValidate autoComplete="off">
+          <form
+            className={classes.form}
+            noValidate
+            autoComplete="off"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <OutlinedInput
               id="outlined-adornment-weight"
               className={classes.search_input}
-              // value={values.weight}
-              // onChange={handleChange('weight')}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               placeholder="Search CSS Design"
             />
           </form>

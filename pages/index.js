@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export async function getServerSideProps({ query: { page = 1 } }) {
+export async function getServerSideProps({ query: { page = 1, search = "" } }) {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -45,6 +45,7 @@ export async function getServerSideProps({ query: { page = 1 } }) {
 
   const res = await client.getEntries({
     content_type: "cssDesign",
+    "fields.title[match]": search,
     order: "-sys.createdAt",
     limit: design_per_page,
     skip: skip,
@@ -55,11 +56,12 @@ export async function getServerSideProps({ query: { page = 1 } }) {
       css_design: res.items,
       total_entries: res.total,
       page,
+      search,
     },
   };
 }
 
-export default function Home({ css_design, total_entries, page }) {
+export default function Home({ css_design, total_entries, page, search }) {
   const [currentPage, setCurrentPage] = useState(page);
   const router = useRouter();
   const total_pages = Math.floor(total_entries / design_per_page) + 1;
@@ -110,7 +112,7 @@ export default function Home({ css_design, total_entries, page }) {
       </Grid>
 
       <form noValidate autoComplete="off" className={styles.btn_container}>
-        <Link href={`/?page=${+page - 1}`}>
+        <Link href={`?search=${search}&page=${+page - 1}`}>
           <Button disabled={page <= 1}>
             <KeyboardArrowLeftIcon />
           </Button>
@@ -122,14 +124,13 @@ export default function Home({ css_design, total_entries, page }) {
           variant="filled"
           type="number"
           value={currentPage}
-          InputProps={{ inputProps: { min: 0, max: 10 } }}
           onChange={(e) => handleChange(e.target.value)}
           endAdornment={
             <InputAdornment position="end">{` / ${total_pages}`}</InputAdornment>
           }
         />
 
-        <Link href={`/?page=${+page + 1}`}>
+        <Link href={`?search=${search}&page=${+page + 1}`}>
           <Button disabled={total_entries - page * design_per_page <= 0}>
             <KeyboardArrowRightIcon />
           </Button>
