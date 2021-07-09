@@ -1,2 +1,10 @@
-.root {
+.header {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.code_icon {
+  cursor: pointer;
 }

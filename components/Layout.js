@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   appbar: {
-    background: "#fefefe",
-    borderBottom: "1px solid lightgray",
+    // background: "#fefefe",
+    // borderBottom: "1px solid lightgray",
   },
   space: theme.mixins.toolbar,
   toolbar: {
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   page: {
-    paddingTop: 30,
-    // background: "red",
+    // marginTop: 30,
+    // background: "lightgray",
   },
 }));
 
@@ -34,8 +34,14 @@ export default function Layout({ children }) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={classes.appbar} elevation={0}>
-        <Toolbar className={classes.toolbar}>
+      <AppBar
+        position="sticky"
+        className={classes.appbar}
+        elevation={0}
+        color="default"
+      >
+        {/* <Toolbar className={classes.toolbar}> */}
+        <Toolbar>
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -46,7 +52,7 @@ export default function Layout({ children }) {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <div className={classes.space}></div>
+      {/* <div className={classes.space}></div> */}
       <div className={classes.page}>{children}</div>
     </div>
   );
