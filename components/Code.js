@@ -3,6 +3,9 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 import styles from "../styles/Code.module.css";
+import js from "../public/javascript.svg";
+import Image from "next/image";
+import Paper from "@material-ui/core/Paper";
 
 if (typeof navigator !== "undefined") {
   require("codemirror/mode/xml/xml");
@@ -18,12 +21,25 @@ export default function Code({ displayName, language, value, onChange }) {
 
   return (
     <div className={styles.container}>
-      <div
+      {/* <div
         className={styles.topPane}
         onClick={() => navigator.clipboard.writeText(value)}
       >
         {displayName}
-      </div>
+        <Image
+          src={`/../public/${displayName.toLowerCase()}.svg`}
+          width={20}
+          height={20}
+        />
+      </div> */}
+      <Paper>
+        {displayName}
+        <Image
+          src={`/../public/${displayName.toLowerCase()}.svg`}
+          width={20}
+          height={20}
+        />
+      </Paper>
       <ControlledEditor
         className={styles.editor}
         onBeforeChange={handleChange}

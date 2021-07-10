@@ -5,6 +5,8 @@
 }
 
 .topPane {
+  display: flex;
+  align-items: center;
 }
 
 .editor {

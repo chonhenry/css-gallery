@@ -94,7 +94,9 @@ export default function Home({ css_design, total_entries, page, search }) {
               key={design.fields.slug}
             >
               <div className={styles.header}>
-                <a>{design.fields.title}</a>
+                <Typography variant="body1" gutterBottom noWrap>
+                  {design.fields.title}
+                </Typography>
                 <Link href={`/design/${design.fields.slug}`}>
                   <CodeIcon className={styles.code_icon} />
                 </Link>
