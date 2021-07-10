@@ -1,14 +1,24 @@
 .container {
   margin-bottom: 30px;
   margin: auto;
-  width: 80vw;
-}
-
-.topPane {
+  /* width: 80vw; */
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.topPane {
+  width: 800px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.img {
+  margin-right: 20px;
+}
+
 .editor {
-  width: 600px;
+  width: 800px;
+  margin-bottom: 50px;
 }

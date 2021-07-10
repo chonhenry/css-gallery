@@ -12,6 +12,13 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: "Share Tech Mono",
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 790,
+      md: 1160,
+    },
+  },
 });
 
 function MyApp({ Component, pageProps }) {

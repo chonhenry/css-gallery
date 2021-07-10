@@ -1,8 +1,11 @@
 import Code from "../../components/Code";
 import Display from "../../components/Display";
+import Description from "../../components/Description";
 import Link from "next/link";
 import { useState } from "react";
 import { createClient } from "contentful";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -54,22 +57,20 @@ export default function Design({ css_design }) {
   const javascript = css_design.fields.javascript
     ? css_design.fields.javascript.content[0].content[0].value
     : "";
+  const title = css_design.title;
+  const description = css_design.fields.description;
 
-  console.log(html);
-
-  const srcDoc = `
-    <html>
-      <body>${html}</body>
-      <style>${css}</style>
-      <script>${javascript}</script>
-    </html>
-  `;
+  // console.log(css_design);
 
   return (
-    <div>
+    <Container>
       <Link href="/">
         <a>Home Page</a>
       </Link>
+      <Description title={title} description={description} />
+      <Display html={html} css={css} javascript={javascript} />
+      <br></br>
+      <br></br>
       <Code displayName="HTML" language="xml" value={html} />
       <Code displayName="CSS" language="css" value={css} />
       {javascript.length > 0 && (
@@ -79,7 +80,14 @@ export default function Design({ css_design }) {
           value={javascript}
         />
       )}
-      <Display html={html} css={css} javascript={javascript} />
-    </div>
+    </Container>
   );
 }
+
+// const srcDoc = `
+// <html>
+//   <body>${html}</body>
+//   <style>${css}</style>
+//   <script>${javascript}</script>
+// </html>
+// `;
