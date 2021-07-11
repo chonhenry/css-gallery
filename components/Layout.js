@@ -69,7 +69,7 @@ export default function Layout({ children }) {
       >
         <Toolbar className={classes.toolbar}>
           <Link href="/">
-            <a>Home Page</a>
+            <a>CSS GALLERY</a>
           </Link>
           <form
             className={classes.form}

@@ -80,8 +80,8 @@ export default function Home({ css_design, total_entries, page, search }) {
               className={classes.grid_item}
               item
               xs={12}
-              sm={6}
-              md={4}
+              sm={4}
+              md={3}
               // lg={3}
               key={design.fields.slug}
             >
