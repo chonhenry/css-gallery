@@ -3,7 +3,6 @@ import "codemirror/theme/material.css";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 import styles from "../styles/Code.module.css";
 import Image from "next/image";
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 if (typeof navigator !== "undefined") {
@@ -13,17 +12,7 @@ if (typeof navigator !== "undefined") {
   require("codemirror/mode/markdown/markdown");
 }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    width: 800,
-    borderRadius: 0,
-    display: "flex",
-  },
-}));
-
 export default function Code({ displayName, language, value, onChange }) {
-  const classes = useStyles();
-
   return (
     <div className={styles.container}>
       <div className={styles.topPane}>

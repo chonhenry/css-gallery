@@ -62,9 +62,6 @@ export default function Design({ css_design }) {
 
   return (
     <Container>
-      {/* <Link href="/">
-        <a>Home Page</a>
-      </Link> */}
       <Description title={title} description={description} />
       <Display html={html} css={css} javascript={javascript} />
       <br></br>

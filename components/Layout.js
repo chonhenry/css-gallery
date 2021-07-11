@@ -55,7 +55,7 @@ export default function Layout({ children }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(search);
-    router.push(`?search=${search}`);
+    router.push(`/?search=${search}`);
     setSearch("");
   };
 
