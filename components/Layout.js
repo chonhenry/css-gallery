@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { makeStyles, StylesProvider } from "@material-ui/core/styles";
+import Link from "next/link";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
@@ -14,15 +14,16 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-
   space: theme.mixins.toolbar,
   toolbar: {
     display: "flex",
     justifyContent: "center",
+    paddingLeft: 50,
+    paddingRight: 50,
   },
-
   form: {
-    width: "60%",
+    width: 300,
+    marginLeft: "auto",
   },
   search_input: {
     height: "30px",
@@ -34,9 +35,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginBottom: "20px",
   },
+  link: {
+    width: 100,
+    display: "flex",
+    alignItems: "center",
+  },
   icon: {
-    fontSize: "30px",
+    fontSize: 20,
     cursor: "pointer",
+    marginRight: "auto",
   },
 }));
 
@@ -61,6 +68,9 @@ export default function Layout({ children }) {
         color="default"
       >
         <Toolbar className={classes.toolbar}>
+          <Link href="/">
+            <a>Home Page</a>
+          </Link>
           <form
             className={classes.form}
             noValidate
@@ -84,8 +94,10 @@ export default function Layout({ children }) {
           href="https://github.com/chonhenry/css-gallery"
           target="_blank"
           rel="noreferrer"
+          className={classes.link}
         >
           <GitHubIcon className={classes.icon} />
+          View Code
         </a>
       </div>
     </div>
