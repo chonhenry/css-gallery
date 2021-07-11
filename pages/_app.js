@@ -4,7 +4,7 @@ import "../styles/globals.css";
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark",
+    // type: "dark",
   },
   typography: {
     fontFamily: "Share Tech Mono",

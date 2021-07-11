@@ -58,7 +58,7 @@ export default function Design({ css_design }) {
   const title = css_design.fields.title;
   const description = css_design.fields.description;
 
-  // console.log(css_design);
+  console.log(css_design);
 
   return (
     <Container>
