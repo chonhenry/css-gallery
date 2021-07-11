@@ -6,8 +6,8 @@ export default function Display({
   html,
   css,
   javascript,
-  width = 600,
-  height = 600,
+  width = 500,
+  height = 500,
 }) {
   // const displayHeight = 300;
   // const displayWidth = 300;

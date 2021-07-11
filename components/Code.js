@@ -37,7 +37,7 @@ export default function Code({ displayName, language, value, onChange }) {
         >
           <Image
             className={styles.img}
-            src={`/../public/${displayName.toLowerCase()}.svg`}
+            src={`/${displayName.toLowerCase()}.svg`}
             width={25}
             height={25}
           />

@@ -2,10 +2,8 @@ import Code from "../../components/Code";
 import Display from "../../components/Display";
 import Description from "../../components/Description";
 import Link from "next/link";
-import { useState } from "react";
 import { createClient } from "contentful";
 import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -57,16 +55,16 @@ export default function Design({ css_design }) {
   const javascript = css_design.fields.javascript
     ? css_design.fields.javascript.content[0].content[0].value
     : "";
-  const title = css_design.title;
+  const title = css_design.fields.title;
   const description = css_design.fields.description;
 
   // console.log(css_design);
 
   return (
     <Container>
-      <Link href="/">
+      {/* <Link href="/">
         <a>Home Page</a>
-      </Link>
+      </Link> */}
       <Description title={title} description={description} />
       <Display html={html} css={css} javascript={javascript} />
       <br></br>
