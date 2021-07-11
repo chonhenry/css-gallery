@@ -81,11 +81,3 @@ export default function Design({ css_design }) {
     </Container>
   );
 }
-
-// const srcDoc = `
-// <html>
-//   <body>${html}</body>
-//   <style>${css}</style>
-//   <script>${javascript}</script>
-// </html>
-// `;

@@ -1,13 +1,9 @@
-import dynamic from "next/dynamic";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 import styles from "../styles/Code.module.css";
-import js from "../public/javascript.svg";
 import Image from "next/image";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 
 if (typeof navigator !== "undefined") {

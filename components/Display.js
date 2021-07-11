@@ -1,6 +1,4 @@
-import { useState } from "react";
 import styles from "../styles/Display.module.css";
-import Container from "@material-ui/core/Container";
 
 export default function Display({
   html,
@@ -9,9 +7,6 @@ export default function Display({
   width = 500,
   height = 500,
 }) {
-  // const displayHeight = 300;
-  // const displayWidth = 300;
-
   const srcDoc = `
   <body style="height:${height}px;margin:0">${html}</body>
   <style>${css}</style>
@@ -21,7 +16,6 @@ export default function Display({
   return (
     <div className={styles.container}>
       <iframe
-        // style={{ background: "red", marginLeft: "60px" }}
         className={styles.display}
         srcDoc={srcDoc}
         title="output"

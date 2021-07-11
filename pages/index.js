@@ -9,21 +9,16 @@ import Display from "../components/Display";
 import Button from "@material-ui/core/Button";
 import CodeIcon from "@material-ui/icons/Code";
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { createClient } from "contentful";
 
-const design_per_page = 6;
+const design_per_page = 12;
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    // background: "pink",
-  },
   grid_item: {
-    // background: "lightblue",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -31,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
   textfield: {
     width: "80px",
-    // height: "1px",
   },
 }));
 
@@ -73,8 +67,6 @@ export default function Home({ css_design, total_entries, page, search }) {
 
   return (
     <Container className={classes.container}>
-      {/* <p>total pages: {total_pages}</p> */}
-
       <Grid container>
         {css_design.map((design) => {
           const html = design.fields.html.content[0].content[0].value;
@@ -141,23 +133,3 @@ export default function Home({ css_design, total_entries, page, search }) {
     </Container>
   );
 }
-
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
-
-//   const res = await client.getEntries({
-//     content_type: "cssDesign",
-//     order: "-sys.createdAt",
-//     limit: 3,
-//     skip: 3,
-//   });
-//   return {
-//     props: {
-//       css_design: res.items,
-//     },
-//     revalidate: 1,
-//   };
-// }

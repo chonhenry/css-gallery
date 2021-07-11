@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: 20,
-    // marginBottom: 20,
   },
   description: {
     width: 600,

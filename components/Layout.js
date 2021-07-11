@@ -3,14 +3,8 @@ import { useRouter } from "next/router";
 import { makeStyles, StylesProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import TextField from "@material-ui/core/TextField";
-import Input from "@material-ui/core/Input";
+
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,19 +14,13 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  appbar: {
-    // background: "#fefefe",
-    // borderBottom: "1px solid lightgray",
-  },
+
   space: theme.mixins.toolbar,
   toolbar: {
     display: "flex",
     justifyContent: "center",
   },
-  page: {
-    // marginTop: 30,
-    // background: "lightgray",
-  },
+
   form: {
     width: "60%",
   },
@@ -89,7 +77,7 @@ export default function Layout({ children }) {
           </form>
         </Toolbar>
       </AppBar>
-      {/* <div className={classes.space}></div> */}
+
       <div className={classes.page}>{children}</div>
       <div className={classes.footer}>
         <a
