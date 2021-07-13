@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Container from "@material-ui/core/Container";
 
 export default function NotFound() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div>
+    <Container>
       <h1>404</h1>
       <h2>This page cannot be found.</h2>
       <p>
@@ -28,6 +29,6 @@ export default function NotFound() {
         </Link>{" "}
         in {second}.
       </p>
-    </div>
+    </Container>
   );
 }
