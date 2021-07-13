@@ -19,16 +19,16 @@ export default function NotFound() {
   }, []);
 
   return (
-    <Container>
-      <h1>404</h1>
-      <h2>This page cannot be found.</h2>
-      <p>
+    <div>
+      <h1 style={{ textAlign: "center" }}>404</h1>
+      <h2 style={{ textAlign: "center" }}>This page cannot be found.</h2>
+      <p style={{ textAlign: "center" }}>
         Redirecting to{" "}
         <Link href="/">
           <a>Homepage</a>
         </Link>{" "}
         in {second}.
       </p>
-    </Container>
+    </div>
   );
 }
