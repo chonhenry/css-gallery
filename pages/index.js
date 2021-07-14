@@ -85,7 +85,7 @@ export default function Home({ css_design, total_entries, page, search }) {
               item
               xs={12}
               sm={4}
-              md={3}
+              // md={3}
               // lg={3}
               key={design.fields.slug}
             >
