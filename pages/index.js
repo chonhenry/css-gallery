@@ -18,6 +18,10 @@ import { createClient } from "contentful";
 const design_per_page = 12;
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    maxWidth: 1500,
+    padding: 0,
+  },
   grid_item: {
     display: "flex",
     flexDirection: "column",
