@@ -18,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "center",
-    paddingLeft: 50,
-    paddingRight: 50,
+    width: "80%",
+    margin: "auto",
+    // paddingLeft: 50,
+    // paddingRight: 50,
   },
   form: {
     width: 300,
