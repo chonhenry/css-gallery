@@ -15,7 +15,7 @@ import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { createClient } from "contentful";
 
-const design_per_page = 12;
+const design_per_page = 9;
 
 const useStyles = makeStyles((theme) => ({
   container: {
