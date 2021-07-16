@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "next/link";
@@ -69,6 +69,15 @@ export default function Home({ css_design, total_entries, page, search }) {
     if ((p > 0 && p <= total_pages) || p === "") setCurrentPage(p);
   };
 
+  const handleSubmit = (e, p) => {
+    e.preventDefault();
+    router.push(`?search=${search}&page=${p}`);
+  };
+
+  useEffect(() => {
+    setCurrentPage(page);
+  }, [page]);
+
   return (
     <Container className={classes.container}>
       <Grid container>
@@ -109,7 +118,12 @@ export default function Home({ css_design, total_entries, page, search }) {
         })}
       </Grid>
 
-      <form noValidate autoComplete="off" className={styles.btn_container}>
+      <form
+        noValidate
+        autoComplete="off"
+        className={styles.btn_container}
+        onSubmit={(e) => handleSubmit(e, currentPage)}
+      >
         <Link href={`?search=${search}&page=${+page - 1}`}>
           <Button disabled={page <= 1}>
             <KeyboardArrowLeftIcon />
