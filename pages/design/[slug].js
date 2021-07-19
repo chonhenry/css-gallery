@@ -58,7 +58,7 @@ export default function Design({ css_design }) {
     : "";
   const title = css_design.fields.title;
   const description = css_design.fields.description;
-  const tags = "tags" in css_design.fields ? css_design.fields.tags : ["sdfv"];
+  const tags = "tags" in css_design.fields ? css_design.fields.tags : [];
 
   return (
     <Container>
