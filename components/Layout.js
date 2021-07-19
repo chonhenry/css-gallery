@@ -20,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     width: "80%",
     margin: "auto",
-    // paddingLeft: 50,
-    // paddingRight: 50,
   },
   form: {
     width: 300,
@@ -56,7 +54,6 @@ export default function Layout({ children }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(search);
     router.push(`/?search=${search}`);
     setSearch("");
   };

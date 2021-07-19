@@ -1,9 +1,10 @@
 import Code from "../../components/Code";
 import Display from "../../components/Display";
 import Description from "../../components/Description";
-import Link from "next/link";
+import Tag from "../../components/Tag";
 import { createClient } from "contentful";
 import Container from "@material-ui/core/Container";
+import styles from "../../styles/Slug.module.css";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -57,8 +58,7 @@ export default function Design({ css_design }) {
     : "";
   const title = css_design.fields.title;
   const description = css_design.fields.description;
-
-  console.log(css_design);
+  const tags = "tags" in css_design.fields ? css_design.fields.tags : ["sdfv"];
 
   return (
     <Container>
@@ -75,6 +75,11 @@ export default function Design({ css_design }) {
           value={javascript}
         />
       )}
+      <div className={styles.container}>
+        {tags.map((tag, idx) => (
+          <Tag key={tag + idx} tag={tag} />
+        ))}
+      </div>
     </Container>
   );
 }
