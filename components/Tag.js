@@ -17,7 +17,7 @@ export default function Tag({ tag }) {
   const router = useRouter();
 
   const handleClick = () => {
-    console.log(tag);
+    // console.log(tag);
     router.push(`/?search=${tag}`);
   };
 

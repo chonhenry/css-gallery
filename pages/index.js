@@ -43,7 +43,8 @@ export async function getServerSideProps({ query: { page = 1, search = "" } }) {
 
   const res = await client.getEntries({
     content_type: "cssDesign",
-    "fields.title[match]": search,
+    // "fields.title[match]": search,
+    "fields.tags[in]": search.length === 0 ? [] : search,
     order: "-sys.createdAt",
     limit: design_per_page,
     skip: skip,
@@ -77,6 +78,8 @@ export default function Home({ css_design, total_entries, page, search }) {
   useEffect(() => {
     setCurrentPage(page);
   }, [page]);
+
+  console.log(search);
 
   return (
     <Container className={classes.container}>
