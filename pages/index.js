@@ -33,13 +33,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export async function getServerSideProps({ query: { page = 1, search = "" } }) {
+export async function getServerSideProps({ query: { page = 1, search = [] } }) {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
   const skip = +page === 1 ? 0 : (+page - 1) * design_per_page;
+
+  if (search.length > 0) {
+    search = search.toLowerCase();
+  }
 
   const res = await client.getEntries({
     content_type: "cssDesign",
@@ -79,7 +83,7 @@ export default function Home({ css_design, total_entries, page, search }) {
     setCurrentPage(page);
   }, [page]);
 
-  console.log(search);
+  // console.log(search);
 
   return (
     <Container className={classes.container}>
